@@ -185,3 +185,138 @@ EDA was performed to identify patterns, trends, and anomalies in the cleaned dat
 - Outliers in heart rate and blood pressure were concentrated in uncleaned records
 
 Visualisations used: bar charts, histograms, box plots, pie charts, and heatmaps.
+
+---
+
+## Statistical Analysis
+
+Statistical analysis was conducted to uncover deeper relationships within the data.
+
+### Methods Used
+
+- **Correlation analysis** — Pearson correlation matrix across numerical variables (age, BMI, heart rate, systolic BP, diastolic BP, cholesterol)
+- **Regression analysis** — Linear regression to understand predictive relationships between age, BMI, and disease presence
+- **Hypothesis testing** — Chi-square tests to validate significant differences in disease rates across demographic groups
+- **Group comparison** — Mean comparison of clinical indicators (BP, cholesterol, BMI) across diabetic vs. non-diabetic patients
+
+### Key Findings
+
+- Strong positive correlation observed between age and systolic blood pressure
+- BMI shows moderate correlation with cholesterol levels and disease presence
+- Diabetic patients exhibit statistically significantly higher cholesterol and BMI values compared to non-diabetic patients
+- Smoking status shows a statistically significant association with hypertension diagnosis (I10)
+- Certain treatments (Lisinopril/Metformin combination) are more frequently associated with diabetic and hypertensive patients, suggesting appropriate clinical targeting
+
+---
+
+## Key Insights
+
+1. Patients in older age groups are more vulnerable to hypertension (I10) and type 2 diabetes (E11.9)
+2. Treatment effectiveness varies significantly across patient segments — Lisinopril/Metformin is predominantly prescribed for diabetic and hypertensive patients
+3. Hypertension (I10) and type 2 diabetes (E11.9) show the highest prevalence among the diagnosed conditions
+4. Recovery rates are influenced by both demographic factors (age, BMI) and treatment adherence (follow-up intervals)
+5. Patients with high BMI (>30) consistently show higher rates of disease presence
+6. Smokers and former smokers have disproportionately higher rates of cardiovascular diagnoses
+7. High-risk groups can be identified using a combination of age, BMI, smoking status, and cholesterol level
+8. Preventive healthcare strategies targeting high-BMI and smoking populations could significantly reduce condition severity
+9. Data highlights inefficiencies in follow-up scheduling — a large proportion of records have no follow-up date recorded
+10. Certain cities (New York, Chicago) show higher patient volumes, suggesting potential resource allocation opportunities
+
+---
+
+## Tableau Dashboard
+
+An interactive Tableau dashboard was developed to allow stakeholders to explore key metrics dynamically.
+
+### Dashboard Features
+
+- Patient distribution by city and demographic group
+- Condition prevalence by diagnosis code
+- Treatment type breakdown across patient segments
+- Disease rate by age group and gender
+- KPI summary cards for recovery rate, average follow-up, and condition counts
+- Filters for city, gender, smoking status, and diagnosis code
+
+Dashboard screenshots are stored in: `tableau/screenshots/`
+
+---
+
+## Business Recommendations
+
+1. **Focus healthcare resources on high-risk demographic groups** — Older patients and those with high BMI should receive priority screening for hypertension and diabetes
+2. **Optimise treatment strategies** — Lisinopril/Metformin combinations show strong alignment with diabetic and hypertensive patient profiles; standardise prescribing guidelines accordingly
+3. **Implement preventive care programs** — Target smoking cessation and weight management programs at identified high-risk segments
+4. **Improve data collection processes** — Standardise data entry for age, BMI, blood pressure, and follow-up dates to reduce preprocessing overhead in future cycles
+5. **Use data-driven insights for resource allocation** — Cities with higher patient volumes (New York, Chicago) may require additional healthcare capacity
+6. **Enforce follow-up scheduling** — A significant proportion of patients have no follow-up date; implementing mandatory follow-up scheduling could improve outcome tracking
+
+---
+
+## Limitations & Future Scope
+
+### Limitations
+
+- Dataset may not represent all geographical regions or patient demographics
+- Missing values and data entry inconsistencies required significant imputation, which may affect accuracy
+- Limited variables available for advanced predictive modelling (no lab results, treatment outcomes, or longitudinal data)
+- Anonymised patient names reduce the ability to track individual patient journeys
+
+### Future Scope
+
+- Apply machine learning models (logistic regression, random forest) for disease prediction
+- Integrate real-time healthcare data streams for live dashboard updates
+- Expand dataset to include broader geographic coverage and additional clinical variables
+- Develop an automated reporting pipeline for periodic analytics delivery
+- Build a patient risk scoring model using demographic and clinical indicators
+
+---
+
+## Technologies Used
+
+| Technology | Purpose |
+|---|---|
+| Python 3 | Core programming language |
+| Pandas 2.2.2 | Data manipulation and cleaning |
+| NumPy 1.26.4 | Numerical computations |
+| Matplotlib 3.9.0 | Data visualisation |
+| SciPy 1.13.1 | Statistical analysis |
+| Scikit-learn 1.5.0 | Feature engineering and regression |
+| Jupyter Notebook 7.2.0 | Interactive analysis environment |
+| OpenPyXL 3.1.5 | Excel file handling |
+| Tableau | Interactive dashboard development |
+
+---
+
+## Project Structure
+
+```
+Health_VAASS_CuraMind/
+│
+├── data/
+│   ├── raw/
+│   │   └── Patient_Health_Records_Raw.csv
+│   └── processed/
+│       ├── extracted_data.csv
+│       └── cleaned_data.csv
+│
+├── notebooks/
+│   ├── 01_extraction.ipynb
+│   ├── 02_cleaning.ipynb
+│   ├── 03_eda.ipynb
+│   ├── 04_statistical_analysis.ipynb
+│   └── 05_final_load_prep.ipynb
+│
+├── scripts/
+│   └── etl_pipeline.py
+│
+├── tableau/
+│   └── screenshots/
+│
+├── requirements.txt
+├── README.md
+└── REPORT.md
+```
+
+---
+
+*Report prepared by Shorya Taneja | Health VAASS CuraMind | Newton School of Technology | April 2026*
